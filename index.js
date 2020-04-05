@@ -1,8 +1,8 @@
 const express = require("express"); 
 const bodyPars = require("body-parser"); // to parse post request body
 const cors = require("cors"); // accept cross client request
-const path = require('path')
-const multer = require("multer");
+//const path = require('path')
+//const multer = require("multer");
 //const upload = multer({dest:'uploads/'});
 let schema = require("./schema"); 
 let {nstore} = schema;
@@ -29,7 +29,7 @@ app.post("/sl",(req,res)=>{
 	        product:body.product,
 	        price:body.price,
 			unit:body.unit,
-			productImage: path.basename(req.file.path)
+			productImage: body.productImage
 	    	});
 	    	val.save().then(doc=>{   // saving new item to  mongoose
 	        res.write("sucess");
