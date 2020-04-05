@@ -3,7 +3,7 @@ const bodyPars = require("body-parser"); // to parse post request body
 const cors = require("cors"); // accept cross client request
 const path = require('path')
 const multer = require("multer");
-const upload = multer({dest:'uploads/'});
+//const upload = multer({dest:'uploads/'});
 let schema = require("./schema"); 
 let {nstore} = schema;
 const app = express();
@@ -14,7 +14,7 @@ app.use(bodyPars());
 // only allowing cros fom my site
 app.use( cors({
     }));
-app.post("/sl",upload.single('productImage'),(req,res)=>{
+app.post("/sl",(req,res)=>{
     const body = req.body;
     nstore.findOne({brand:body.brand,product:body.product,unit:body.unit,price:body.price},(err,example)=>{
     	if(example)
