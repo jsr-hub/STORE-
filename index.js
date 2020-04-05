@@ -1,6 +1,8 @@
 const express = require("express"); 
 const bodyPars = require("body-parser"); // to parse post request body
 const cors = require("cors"); // accept cross client request
+
+const multer = require("multer");
 let schema = require("./schema"); // 
 let {nstore} = schema;
 const app = express();
