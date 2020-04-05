@@ -4,7 +4,7 @@ const cors = require("cors"); // accept cross client request
 const path = require('path')
 const multer = require("multer");
 const upload = multer({dest:'uploads/'});
-let schema = require("./schema"); // 
+let schema = require("./schema"); 
 let {nstore} = schema;
 const app = express();
 
