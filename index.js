@@ -36,7 +36,7 @@ const app = express();
 
 // using middle ware for parse and cross request
 app.use(bodyPars());
-app.use(express.static('uploads'))
+//app.use(express.static('uploads'))
 // only allowing cros fom my site
 app.use( cors({
     }));
