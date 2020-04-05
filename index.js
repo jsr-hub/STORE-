@@ -47,40 +47,7 @@ app.get("/gl",(req,res)=>{
         res.send(val)  
     })
 });
-app.get("/", (req, res, next) => {
-	nstore.find()
-	  .select("brand product unit price productImage")
-	  .exec()
-	  .then(docs => {
-		const response = {
-		  count: docs.length,
-		  products: docs.map(doc => {
-			return {
-			  brand: doc.name,
-			  product: doc.product,
-			  productImage: doc.productImage,
-			  request: {
-				type: "GET",
-				url: "http://localhost:3000/" + doc.productImage
-			  }
-			};
-		  })
-		};
-		//   if (docs.length >= 0) {
-		res.status(200).json(response);
-		//   } else {
-		//       res.status(404).json({
-		//           message: 'No entries found'
-		//       });
-		//   }
-	  })
-	  .catch(err => {
-		console.log(err);
-		res.status(500).json({
-		  error: err
-		});
-	  });
-  });
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, ()=>{
     console.log("server started lisening in port 3000.....");
